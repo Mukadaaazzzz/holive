@@ -15,9 +15,9 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-    { name: 'Product', href: '#product', current: true },
-    { name: 'Pricing', href: '#pricing', current: false },
-    { name: 'Features', href: '#features', current: false },
+    { name: 'About Us', href: '/about', current: true },
+    { name: 'Our Programs', href: '/holive-partnership', current: false },
+    { name: 'Log In', href: '/login', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -36,8 +36,9 @@ const Navbar = () => {
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
 
                             {/* LOGO */}
-
+                            <Link href="/">
                             <div className="flex flex-shrink-0 items-center">
+                                
                                 <img
                                     className="block h-24 w-34 lg:hidden"
                                     src={'/assets/logo/logoh.png'}
@@ -49,7 +50,7 @@ const Navbar = () => {
                                     alt="logo"
                                 />
                             </div>
-
+                            </Link>
                             {/* LINKS */}
 
                             <div className="hidden lg:block ml-auto mt-10">

@@ -8,9 +8,9 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-  { name: 'Product', href: '#product', current: true },
-  { name: 'Pricing', href: '#pricing', current: false },
-  { name: 'Features', href: '#features', current: false },
+  { name: 'About Us', href: '/about', current: true },
+  { name: 'Our Programs', href: '/holive-partnership', current: false },
+  { name: 'Log In', href: '/login', current: false },
 ]
 
 function classNames(...classes: string[]) {
