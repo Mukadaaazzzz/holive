@@ -72,7 +72,7 @@ export default function LoginPage() {
         {message && <p className="mt-4 text-center text-sm text-red-500">{message}</p>}
 
         <p className="text-center text-sm text-gray-600 mt-4">
-          Don't have an account?{" "}
+          Dont have an account?{" "}
           <Link href="/signup" className="text-blue-600 hover:underline">
             Sign up
           </Link>

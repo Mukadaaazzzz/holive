@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import Image from "next/image";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 
 
@@ -54,7 +55,7 @@ const Signin = () => {
                                     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                                         <div className="w-full max-w-md space-y-8">
                                             <div>
-                                                <img
+                                                <Image
                                                     className="mx-auto h-24 w-34"
                                                     src="/assets/logo/logoh.png"
                                                     alt="holive"

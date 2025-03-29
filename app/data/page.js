@@ -187,7 +187,7 @@ export default function DataPage() {
 
   // Update plans when network changes
   useEffect(() => {
-    setDataPlans(allPlans[network] || []);
+    setDataPlans(allPlans[network] || [allPlans]);
     setPlan(""); // Reset plan selection when network changes
   }, [network]);
 

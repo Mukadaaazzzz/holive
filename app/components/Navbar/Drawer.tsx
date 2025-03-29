@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Image from "next/image";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface DrawerProps {
@@ -26,7 +27,8 @@ const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
     >
  
                 <article className="relative w-270 max-w-lg pb-10 flex flex-col space-y-6 h-full">
-                    <header className="p-4 flex items-center justify-between"><img
+                    <header className="p-4 flex items-center justify-between">
+                        <Image
                         className="h-24 w-34"
                         src={"/assets/logo/logoh.png"}
                         alt="Logo"

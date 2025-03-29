@@ -157,7 +157,7 @@ const About = () => {
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-gray-800">Flexible Earnings</h3>
                       <p className="text-gray-700 mt-1">
-                        Whether you're a student, entrepreneur, or professional - anyone can join and start earning with minimal effort.
+                        Whether you are a student, entrepreneur, or professional - anyone can join and start earning with minimal effort.
                       </p>
                     </div>
                   </div>
@@ -183,7 +183,7 @@ const About = () => {
                 <h3 className="text-xl font-semibold mb-4 text-blue-100">Why We Exist</h3>
                 <p className="text-blue-100 leading-relaxed">
                   Holive was founded to democratize financial services and create earning opportunities through technology. 
-                  We're committed to building solutions that don't just process transactions, but transform lives by making 
+                  We are committed to building solutions that dont just process transactions, but transform lives by making 
                   financial empowerment accessible to everyone.
                 </p>
               </div>
@@ -226,7 +226,7 @@ const About = () => {
               <div className="p-8 md:w-2/3">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Holive Pharmacy - Healthcare Redefined</h2>
                 <p className="text-gray-700 mb-6">
-                  Beyond digital payments, we're committed to community health through Holive Pharmacy - providing 
+                  Beyond digital payments, we are committed to community health through Holive Pharmacy - providing 
                   quality medications and wellness products with the same innovative approach.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
