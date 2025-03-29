@@ -1,140 +1,58 @@
 "use client";
-import { SetStateAction, useState } from 'react';
-import Image from 'next/image';
 
-const names = [
+export default function TestimonialsSection() {
+  const testimonials = [
     {
-        heading: "Lite",
-        price: 41,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'yearly',
-        imgSrc: '/assets/pricing/starone.svg',
+      quote:
+        "This platform revolutionized my bill payments—it's fast, secure, and truly hassle-free!",
+      author: "John",
+      position: "Satisfied Customer",
     },
     {
-        heading: "Basic",
-        price: 29,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'yearly',
-        imgSrc: '/assets/pricing/startwo.svg',
+      quote:
+        "I not only pay my bills effortlessly but also earn extra income promoting essential products.",
+      author: "Adetunji",
+      position: "Happy Reseller",
     },
-    {
-        heading: "Plus",
-        price: 139,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'yearly',
-        imgSrc: '/assets/pricing/starthree.svg',
-    },
-    {
-        heading: "Plus",
-        price: 139,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'monthly',
-        imgSrc: '/assets/pricing/starone.svg',
-    },
-    {
-        heading: "Lite",
-        price: 41,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'monthly',
-        imgSrc: '/assets/pricing/startwo.svg',
-    },
-    {
-        heading: "Basic",
-        price: 29,
-        subscriber: 0.50,
-        button: "Start free trial",
-        option: 'Sed ut perspiciatis unde',
-        category: 'monthly',
-        imgSrc: '/assets/pricing/starthree.svg',
-    },
-]
+  ];
 
+  return (
+    <section className="py-16 mt-[-20px] ">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-4xl font-extrabold text-midnightblue mt-[-40px]  ">
+          Trusted by 100k+ Users for Seamless Bill Payments!
+        </h2>
+        <p className="mt-4 text-lg text-gray-600 ">
+          Join thousands of happy customers enjoying fast, secure, and hassle-free payments every day.
+        </p>
 
-const Pricing = () => {
-
-    const [selectedCategory, setSelectedCategory] = useState('monthly');
-
-    const handleCategoryChange = (category: SetStateAction<string>) => {
-        setSelectedCategory(category);
-    };
-
-    const filteredData = names.filter((item) => item.category === selectedCategory);
-
-    return (
-        <div id="pricing" className='pricing-bg relative py-10'>
-            <Image src="/assets/pricing/upperline.png" alt="upperline-image" width={280} height={219} className='absolute top-[160px] left-[90px] hidden sm:block' />
-            <Image src="/assets/pricing/lowerline.png" alt="lowerline-image" width={180} height={100} className='absolute bottom-[0px] right-[90px]' />
-            <div className='mx-auto max-w-7xl sm:py-20 lg:px-8 my-16'>
-                <h3 className='text-center text-4xl sm:text-65xl font-black'>Our Pricing Plan.</h3>
-
-                <p className='text-lg font-normal text-center text-black opacity-60 pt-5'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br /> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab.</p>
-
-                <div className='mt-6 relative'>
-                    <div className='flex justify-center'>
-                        <div className='bg-cornflowerblue flex py-1 px-1 rounded-full '>
-                            <h3
-                                className={`text-xl font-medium cursor-pointer ${selectedCategory === 'yearly' ? 'text-electricblue bg-white rounded-full py-2 px-4 sm:py-4 sm:px-16' : 'text-white py-2 px-4 sm:py-4 sm:px-16'
-                                    }`}
-                                onClick={() => handleCategoryChange('yearly')}
-                            >
-                                Yearly
-                            </h3>
-                            <h3
-                                className={`text-xl font-medium cursor-pointer ${selectedCategory === 'monthly' ? 'text-electricblue bg-white rounded-full py-2 px-4 sm:py-4 sm:px-16' : 'text-white py-2 px-4 sm:py-4 sm:px-16'
-                                    }`}
-                                onClick={() => handleCategoryChange('monthly')}
-                            >
-                                Monthly
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-16 mx-5 gap-6'>
-                    {
-                        filteredData.map((item, index) => (
-                            <div className='pt-10 pb-28 pl-10 pr-10 bg-white rounded-3xl bxshd relative cursor-pointer hover:bg-dodgerblue group' key={index}>
-                                <Image src={item.imgSrc} alt="star-image" width={154} height={154} className='absolute bottom-0 right-0' />
-                                <h4 className='text-4xl sm:text-5xl font-semibold mb-8 text-midnightblue group-hover:text-white'>{item.heading}</h4>
-                                <button className='text-xl font-medium text-white w-full bg-blue hover:text-white group-hover:bg-cornflowerblue group-hover:border-cornflowerblue border-2 border-blue rounded-full py-4 px-12 mb-8'>{item.button}</button>
-                                <h2 className='text-4xl sm:text-5xl font-semibold text-midnightblue mb-3 group-hover:text-white'>${item.price}/<span className='text-lightgrey'>mo</span></h2>
-                                <p className='text-lg font-normal text-black group-hover:text-white'>${item.subscriber}<span>/ Subscriber</span></p>
-                                <p className='text-lg font-normal text-black opacity-40 mb-6 group-hover:text-white'>(per subscriber per month)</p>
-
-                                <div className='flex gap-4'>
-                                    <Image src="/assets/pricing/tick.svg" alt="tick-image" width={32} height={32} />
-                                    <p className='text-lg font-medium text-black opacity-60 group-hover:text-translucentwhite'>{item.option}</p>
-                                </div>
-                                <div className='flex gap-4 pt-6'>
-                                    <Image src="/assets/pricing/tick.svg" alt="tick-image" width={32} height={32} />
-                                    <p className='text-lg font-medium text-black opacity-60 group-hover:text-translucentwhite'>{item.option}</p>
-                                </div>
-                                <div className='flex gap-4 pt-6'>
-                                    <Image src="/assets/pricing/tick.svg" alt="tick-image" width={32} height={32} />
-                                    <p className='text-lg font-medium text-black opacity-60 group-hover:text-translucentwhite'>{item.option}</p>
-                                </div>
-                                <div className='flex gap-4 pt-6'>
-                                    <Image src="/assets/pricing/tick.svg" alt="tick-image" width={32} height={32} />
-                                    <p className='text-lg font-medium text-black opacity-60 group-hover:text-translucentwhite'>{item.option}</p>
-                                </div>
-                            </div>
-                        ))}
-                </div>
-
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-white p-8 rounded-xl shadow-md">
+              <p className="text-gray-700 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+              <div className="mt-4">
+                <p className="text-midnightblue font-bold">{testimonial.author}</p>
+                <p className="text-gray-500 text-sm">{testimonial.position}</p>
+              </div>
             </div>
+          ))}
         </div>
-    );
-}
 
-export default Pricing;
+        <div className="mt-16 bg-electricblue rounded-xl py-12 px-8">
+          <h3 className="text-3xl font-bold text-white">
+            Ready to Experience Hassle-Free Payments?
+          </h3>
+          <p className="mt-4 text-white text-lg">
+            Join us today and simplify your bill payments while unlocking extra earning opportunities!
+          </p>
+          <a
+            href="/signup"
+            className="mt-6 inline-block bg-white text-electricblue font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition"
+          >
+            Get Started Now
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

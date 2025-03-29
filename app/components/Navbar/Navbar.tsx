@@ -39,21 +39,21 @@ const Navbar = () => {
 
                             <div className="flex flex-shrink-0 items-center">
                                 <img
-                                    className="block h-12 w-40 lg:hidden"
-                                    src={'/assets/logo/logo.svg'}
-                                    alt="paidin-logo"
+                                    className="block h-24 w-34 lg:hidden"
+                                    src={'/assets/logo/logoh.png'}
+                                    alt="logo"
                                 />
                                 <img
-                                    className="hidden h-full w-full lg:block"
-                                    src={'/assets/logo/logo.svg'}
-                                    alt="paidin-logo"
+                                    className="hidden h-auto w-auto lg:block max-h-32 max-w-80"
+                                    src={'/assets/logo/logoh.png'}
+                                    alt="logo"
                                 />
                             </div>
 
                             {/* LINKS */}
 
-                            <div className="hidden lg:block ml-20">
-                                <div className="flex space-x-4">
+                            <div className="hidden lg:block ml-auto mt-10">
+                                <div className="flex space-x-6 justify-end">
                                     {navigation.map((item) => (
                                         <Link
                                             key={item.name}
@@ -73,12 +73,12 @@ const Navbar = () => {
 
                         {/* SIGNIN DIALOG */}
 
-                        <Signdialog />
+                        
 
 
                         {/* REGISTER DIALOG */}
 
-                        <Registerdialog />
+                        
 
 
                         {/* DRAWER FOR MOBILE VIEW */}
