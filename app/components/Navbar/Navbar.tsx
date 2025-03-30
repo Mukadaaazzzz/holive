@@ -2,6 +2,7 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
@@ -40,13 +41,21 @@ const Navbar = () => {
                             <Link href="/">
                             <div className="flex flex-shrink-0 items-center">
                                 
-                            <Image
-    className="hidden lg:block"
-    src="/logoh.png"
-    alt="Holive Logo"
-    width={200}  // Set actual width
-    height={80}  // Set actual height
-/>
+                            <motion.div
+      initial={{ opacity: 1, scale: 1 }} // Start invisible & small
+      animate={{ opacity: 1, scale: 1 }}   // Grow & fade in smoothly
+      transition={{ duration: 0.5, ease: "easeOut" }} // Smooth timing
+      className="flex flex-shrink-0 items-center"
+    >
+      <Image
+        className="hidden lg:block"
+        src="/logoh.png"
+        alt="Holive Logo"
+        width={200}
+        height={80}
+        priority
+      />
+    </motion.div>
 
 
 </div>

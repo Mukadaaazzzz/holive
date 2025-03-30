@@ -7,7 +7,7 @@ export default function HolivePartnershipPage() {
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative">
-        <div className="relative w-full h-[125px] md:h-[150px] lg:h-[160px]">
+        <div className="relative w-full h-[350px] md:h-[250px] lg:h-[350px]">
           <Image
             src="/assets/holive-hero.jpg"
             alt="Holive Partnership Program"
