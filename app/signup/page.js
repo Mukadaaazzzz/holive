@@ -34,7 +34,7 @@ export default function SignupPage() {
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
         {/* Logo and Heading */}
         <div className="flex flex-col items-center mb-6">
-          <Image src="/assets/logo/logoh.png" alt="Holive Logo" width={80} height={80} />
+          <Image src="/logoh.png" alt="Holive Logo" width={80} height={80} />
           <h2 className="text-2xl font-semibold text-gray-800 mt-2">Create an Account</h2>
           <p className="text-gray-500 text-sm mt-1">Join Holive today!</p>
         </div>

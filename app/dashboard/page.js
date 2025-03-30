@@ -87,7 +87,14 @@ export default function Dashboard() {
         {actions.map((action, index) => (
           <Link href={action.href} key={index}>
             <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center justify-center space-y-2 hover:bg-blue-500 hover:text-white transition cursor-pointer">
-              <Image src={action.iconSrc} alt={action.label} className="h-10 w-10" />
+            <Image 
+    src={action.iconSrc} 
+    alt={action.label} 
+    width={40} 
+    height={40} 
+    className="h-10 w-10"
+/>
+
               <span className="text-center text-sm font-medium">{action.label}</span>
             </div>
           </Link>

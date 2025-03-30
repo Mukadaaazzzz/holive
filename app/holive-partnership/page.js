@@ -1,23 +1,24 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function HolivePartnershipPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative">
-        <div className="w-full h-96 relative">
+        <div className="relative w-full h-[125px] md:h-[150px] lg:h-[160px]">
           <Image
-            src="/assets/holive-hero.jpg" // Replace with your intro image
+            src="/assets/holive-hero.jpg"
             alt="Holive Partnership Program"
             fill
             className="object-cover"
+            priority // Loads the image faster
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center">
             <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
               Holive Partnership Program
             </h1>
-            
           </div>
         </div>
       </section>
@@ -33,6 +34,7 @@ export default function HolivePartnershipPage() {
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
           Whether you are passionate about health, wellness, or everyday essentials, our program makes it simple to turn your network into a steady income stream. Promote products, share your unique referral code, and watch your earnings grow—all while enjoying a hassle-free experience.
         </p>
+
         <div className="border-t border-gray-200 pt-6">
           <h3 className="text-2xl font-semibold text-midnightblue mb-4">
             How It Works
@@ -52,15 +54,14 @@ export default function HolivePartnershipPage() {
             </li>
           </ul>
         </div>
-        <Link href="/holive-partners-register">
+
         <div className="mt-10 text-center">
-          
-          <button className="px-8 py-4 bg-electricblue text-white rounded-lg shadow-lg hover:bg-blue-600 transition">
-            Join the Program
-          </button>
-       
+          <Link href="/holive-partners-register">
+            <button className="px-8 py-4 bg-electricblue text-white rounded-lg shadow-lg hover:bg-blue-600 transition">
+              Join the Program
+            </button>
+          </Link>
         </div>
-        </Link>
       </section>
     </main>
   );

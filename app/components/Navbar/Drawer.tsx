@@ -28,14 +28,16 @@ const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
  
                 <article className="relative w-270 max-w-lg pb-10 flex flex-col space-y-6 h-full">
                     <header className="p-4 flex items-center justify-between">
-                        <Image
-                        className="h-24 w-34"
-                        src={"/assets/logo/logoh.png"}
-                        alt="Logo"
-                        onClick={() => {
-                            setIsOpen(false);
-                        }}
-                    /><XMarkIcon className="block h-6 w-6" onClick={() => {
+                    <Image
+    className="cursor-pointer"
+    src="/logoh.png"
+    alt="Logo"
+    width={136} // Adjust to your actual image size
+    height={96}
+    onClick={() => setIsOpen(false)}
+/>
+
+                    <XMarkIcon className="block h-6 w-6" onClick={() => {
                         setIsOpen(false);
                     }} />
                     </header>

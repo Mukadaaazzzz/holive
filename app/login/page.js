@@ -32,7 +32,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
         <div className="flex flex-col items-center mb-6">
-          <Image src="/assets/logo/logoh.png" alt="Holive Logo" width={80} height={80} />
+          <Image src="/logoh.png" alt="Holive Logo" width={80} height={80} />
           <h2 className="text-2xl font-semibold text-gray-800 mt-2">Welcome Back!</h2>
           <p className="text-gray-500 text-sm mt-1">Log in to your account</p>
         </div>

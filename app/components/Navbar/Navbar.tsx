@@ -40,21 +40,21 @@ const Navbar = () => {
                             <Link href="/">
                             <div className="flex flex-shrink-0 items-center">
                                 
-                                <Image
-                                    className="block h-24 w-34 lg:hidden"
-                                    src={'/assets/logo/logoh.png'}
-                                    alt="logo"
-                                />
-                                <Image
-                                    className="hidden h-auto w-auto lg:block max-h-32 max-w-80"
-                                    src={'/assets/logo/logoh.png'}
-                                    alt="logo"
-                                />
-                            </div>
+                            <Image
+    className="hidden lg:block"
+    src="/logoh.png"
+    alt="Holive Logo"
+    width={200}  // Set actual width
+    height={80}  // Set actual height
+/>
+
+
+</div>
+                            
                             </Link>
                             {/* LINKS */}
 
-                            <div className="hidden lg:block ml-auto mt-10">
+                            <div className="hidden lg:block ml-auto mt-20">
                                 <div className="flex space-x-6 justify-end">
                                     {navigation.map((item) => (
                                         <Link
