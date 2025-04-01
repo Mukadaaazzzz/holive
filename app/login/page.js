@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { supabase } from "@/lib/supabaseClient";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -11,20 +11,29 @@ import Link from "next/link";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // state to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
   const router = useRouter();
-
+  const supabase = createClientComponentClient();
   async function handleLogin() {
     setLoading(true);
-    setMessage("");
+    setError(null); // Clear previous errors
+
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      setLoading(false);
+      return;
+    }
+
     const { error } = await supabase.auth.signInWithPassword({ email, password });
+
     if (error) {
-      setMessage(error.message);
+      setError(error.message);
     } else {
       router.push("/dashboard");
     }
+    
     setLoading(false);
   }
 
@@ -56,7 +65,7 @@ export default function LoginPage() {
             <button
               type="button"
               className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? "Hide" : "Show"}
             </button>
@@ -65,14 +74,14 @@ export default function LoginPage() {
 
         <div className="mt-6 flex flex-col gap-3">
           <Button onClick={handleLogin} disabled={loading} className="w-full">
-            Log In
+            {loading ? "Logging in..." : "Log In"}
           </Button>
         </div>
 
-        {message && <p className="mt-4 text-center text-sm text-red-500">{message}</p>}
+        {error && <p className="mt-4 text-center text-sm text-red-500">{error}</p>}
 
         <p className="text-center text-sm text-gray-600 mt-4">
-          Dont have an account?{" "}
+          Don’t have an account?{" "}
           <Link href="/signup" className="text-blue-600 hover:underline">
             Sign up
           </Link>

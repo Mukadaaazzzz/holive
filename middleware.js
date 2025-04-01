@@ -1,37 +1,35 @@
+// middleware.js
 import { NextResponse } from "next/server";
-import { supabase } from "./lib/supabaseClient";
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 
 export async function middleware(req) {
+  const res = NextResponse.next();
+  const supabase = createMiddlewareClient({ req, res });
+
+  const { data: { session } } = await supabase.auth.getSession();
+
   const { pathname } = req.nextUrl;
 
-  // List of pages that don't require authentication
+  // Public paths list
   const publicPages = ["/", "/login", "/signup", "/holive-partnership", "/about"];
 
-  // Allow access to static assets (images, styles, scripts, icons, etc.)
+  // Allow static assets and API routes
   if (
     pathname.match(/\.(png|jpe?g|gif|svg|css|js|ico|woff2|ttf|eot|mp4|webp|json)$/) ||
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") // API requests should not be blocked
+    pathname.startsWith("/api")
   ) {
-    return NextResponse.next();
+    return res;
   }
 
-  // Allow access to public pages
-  if (publicPages.includes(pathname)) {
-    return NextResponse.next();
-  }
-
-  // Check if the user is authenticated
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
+  // Redirect unauthenticated users from protected routes
+  if (!session && !publicPages.includes(pathname)) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  return NextResponse.next();
+  return res;
 }
 
-// Apply middleware to all routes except static assets
 export const config = {
   matcher: "/((?!_next|api).*)",
 };

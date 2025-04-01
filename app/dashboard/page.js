@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabaseClient";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default function Dashboard() {
   const [email, setEmail] = useState("");
@@ -11,9 +11,17 @@ export default function Dashboard() {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
 
+  // Create the Supabase client
+  const supabase = createClientComponentClient();
+
   useEffect(() => {
     async function fetchUserData() {
-      const { data: { user } } = await supabase.auth.getUser();
+      // Fetch the authenticated user
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error fetching user:", error.message);
+        return;
+      }
       if (user) {
         setEmail(user.email);
 
@@ -44,10 +52,12 @@ export default function Dashboard() {
         } else {
           console.error("Error fetching profile:", profileError);
         }
+      } else {
+        console.log("No authenticated user found");
       }
     }
     fetchUserData();
-  }, []);
+  }, [supabase]); // Add supabase to the dependency array
 
   // Dynamic greeting message
   const greeting = username
@@ -87,14 +97,13 @@ export default function Dashboard() {
         {actions.map((action, index) => (
           <Link href={action.href} key={index}>
             <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center justify-center space-y-2 hover:bg-blue-500 hover:text-white transition cursor-pointer">
-            <Image 
-    src={action.iconSrc} 
-    alt={action.label} 
-    width={40} 
-    height={40} 
-    className="h-10 w-10"
-/>
-
+              <Image
+                src={action.iconSrc}
+                alt={action.label}
+                width={40}
+                height={40}
+                className="h-10 w-10"
+              />
               <span className="text-center text-sm font-medium">{action.label}</span>
             </div>
           </Link>
@@ -103,7 +112,7 @@ export default function Dashboard() {
 
       {/* Footer */}
       <footer className="mt-12 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Holive. All rights reserved.
+        © {new Date().getFullYear()} Holive. All rights reserved.
       </footer>
     </div>
   );
