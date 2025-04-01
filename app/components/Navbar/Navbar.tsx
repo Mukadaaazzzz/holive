@@ -9,7 +9,6 @@ import Drawerdata from "./Drawerdata";
 import Signdialog from "./Signdialog";
 import Registerdialog from "./Registerdialog";
 
-
 interface NavigationItem {
     name: string;
     href: string;
@@ -27,7 +26,6 @@ function classNames(...classes: string[]) {
 }
 
 const Navbar = () => {
-
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
@@ -36,33 +34,28 @@ const Navbar = () => {
                 <div className="mx-auto max-w-7xl px-6 md:py-4 lg:px-8">
                     <div className="relative flex h-20 items-center justify-between">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
-
                             {/* LOGO */}
                             <Link href="/">
                             <div className="flex flex-shrink-0 items-center">
-                                
-                            <motion.div
-      initial={{ opacity: 1, scale: 1 }} // Start invisible & small
-      animate={{ opacity: 1, scale: 1 }}   // Grow & fade in smoothly
-      transition={{ duration: 0.5, ease: "easeOut" }} // Smooth timing
-      className="flex flex-shrink-0 items-center"
-    >
-      <Image
-        className="hidden lg:block"
-        src="/logoh.png"
-        alt="Holive Logo"
-        width={200}
-        height={80}
-        priority
-      />
-    </motion.div>
-
-
+  <motion.div
+    initial={{ opacity: 1, scale: 1 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
+    className="flex flex-shrink-0 items-center"
+  >
+    <Image
+      src="/logoh.png"
+      alt="Holive Logo"
+      width={200}
+      height={80}
+      priority
+      className="w-48 h-auto sm:w-40 sm:h-auto md:w-32 md:h-auto lg:w-40 lg:h-auto xl:w-48 xl:h-auto"
+    />
+  </motion.div>
 </div>
-                            
+
                             </Link>
                             {/* LINKS */}
-
                             <div className="hidden lg:block ml-auto mt-20">
                                 <div className="flex space-x-6 justify-end">
                                     {navigation.map((item) => (
@@ -81,31 +74,17 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
-
                         {/* SIGNIN DIALOG */}
-
-                        
-
-
                         {/* REGISTER DIALOG */}
-
-                        
-
-
                         {/* DRAWER FOR MOBILE VIEW */}
-
                         {/* DRAWER ICON */}
-
                         <div className='block lg:hidden'>
                             <Bars3Icon className="block h-6 w-6" aria-hidden="true" onClick={() => setIsOpen(true)} />
                         </div>
-
                         {/* DRAWER LINKS DATA */}
-
                         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
                             <Drawerdata />
                         </Drawer>
-
                     </div>
                 </div>
             </>
