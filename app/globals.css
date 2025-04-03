@@ -159,3 +159,21 @@ html:not([data-scroll="0"]) .ttty {
     @apply bg-background text-foreground;
     }
 }
+
+.responsive-logo {
+    width: 100%;
+    max-width: 200px; /* Default for large screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-logo {
+      max-width: 150px; /* Tablets */
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .responsive-logo {
+      max-width: 100px; /* Mobile */
+    }
+  }

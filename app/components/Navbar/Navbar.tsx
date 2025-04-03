@@ -44,13 +44,13 @@ const Navbar = () => {
     className="flex flex-shrink-0 items-center"
   >
     <Image
-      src="/logoh.png"
-      alt="Holive Logo"
-      width={200}
-      height={80}
-      priority
-      className="w-48 h-auto sm:w-40 sm:h-auto md:w-32 md:h-auto lg:w-40 lg:h-auto xl:w-48 xl:h-auto"
-    />
+  src="/logoh.png"
+  alt="Holive Logo"
+  width={200}
+  height={80}
+  priority
+  className="responsive-logo"
+/>
   </motion.div>
 </div>
 
