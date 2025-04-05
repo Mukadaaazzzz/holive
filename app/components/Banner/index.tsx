@@ -16,7 +16,7 @@ const Banner = () => {
                         <h3 className='text-black opacity-75 text-lg font-normal text-center lg:text-start pt-8'>Pay bills seamlessly and earn commissions by promoting essential products—all in one place.</h3>
                         <div className='pt-8 mx-auto lg:mx-0'>
                         <Link href="/signup">
-                            <button className="text-white text-xl font-medium py-6 px-12 rounded-full transition duration-150 ease-in-out bg-electricblue hover:text-white hover:bg-blue " >
+                            <button className="text-white text-xl font-small py-4 px-8 rounded-full transition duration-150 ease-in-out bg-electricblue hover:text-white hover:bg-blue " >
                                 Sign Up
                             </button>
                             </Link>

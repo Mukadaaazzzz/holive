@@ -20,9 +20,9 @@ const socialLinks = [
 ];
 
 const links = [
-  { name: "Product", link: "/product" },
-  { name: "Pricing", link: "/pricing" },
-  { name: "Features", link: "/features" },
+  { name: "About Us", link: "/about" },
+  { name: "Our Products", link: "/holive-partnership" },
+  { name: "Log In", link: "/login" },
 ];
 
 const Footer = () => {
@@ -60,15 +60,7 @@ const Footer = () => {
 
         </div>
 
-        {/* COPYRIGHT & LEGAL LINKS */}
-        <div className="mt-8 border-t border-gray-600 pt-6 text-center md:flex justify-between items-center text-sm opacity-70">
-          <p>© 2025 Holive Integrated Services. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 mt-3 md:mt-0">
-            <Link href="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
-            <span className="hidden md:block">|</span>
-            <Link href="/terms" className="hover:text-gray-300">Terms & Conditions</Link>
-          </div>
-        </div>
+        
       </div>
     </footer>
   );
